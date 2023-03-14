@@ -16,9 +16,9 @@ public class Main {
         String contenido2 = "Creo que ya pueden ver este código!! No?";
 
         final Path paths = Paths.get(textoNuevo);
-        boolean archivo = Files.exists(paths);
+        boolean existeArchivo = Files.exists(paths);
 
-        if (archivo) {
+        if (existeArchivo) {
             Files.writeString(paths, contenido + "\n\t"+ contenido2);
             System.out.println("El archivo "+ nombreArchivo +" existe y ya se le ha agregado el contenido. Echale una mirada!! :)");
             System.out.println("Has mirado el archivo?");
