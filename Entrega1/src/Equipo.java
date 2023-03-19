@@ -1,7 +1,7 @@
 
 
-public class Equipo {public class Producto {
-    public void Equipo(int id, String nombre, String descripcion)
+public class Equipo{
+    public void Equipo (int id, String nombre, String descripcion)
     {
 
         this.descripcion=descripcion;
@@ -25,4 +25,4 @@ public class Equipo {public class Producto {
     }
 
 
-}}
+}
