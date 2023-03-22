@@ -23,6 +23,22 @@ public class Equipo{
     {
         return nombre;
     }
+    public void SetDescripcion(String descripcion){
+        this.descripcion = descripcion;
+
+    }
+    public String  GetDescripcion(){
+        return descripcion;
+    }
+    public void SetId(int id){
+        this.id=id;
+    }
+    public int GetId(){
+        return id;
+    }
+
 
 
 }
+
+
