@@ -12,10 +12,15 @@ public class Main {
 
         String archivoString = Files.readString(archivo);
         String[] archivoDatos = archivoString.split(";");
+        String[] infopartido1 = archivoDatos[1].split(",");
+        String[] infopartido2 = archivoDatos[2].split(",");
 
-        for (int i = 1; i < archivoDatos.length; i++) {
-            Partido.CrearPartido(archivoDatos[i]);
-        }
+        Equipo equipo1 = new Equipo(Integer.parseInt(infopartido1[0]),infopartido1[1]);
+        Equipo equipo2 = new Equipo(Integer.parseInt(infopartido1[5]),infopartido1[4]);
+
+        Partido partido1 = new Partido(equipo1,Integer.parseInt(infopartido1[2]),Integer.parseInt(infopartido1[3]),equipo2);
+
+
     }
 }
 

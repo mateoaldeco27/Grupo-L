@@ -1,9 +1,8 @@
 
 
 public class Equipo{
-    public void Equipo (int id, String nombre)
+    public Equipo (int id, String nombre)
     {
-
         this.id=id;
         this.nombre=nombre;
 
@@ -11,6 +10,7 @@ public class Equipo{
     private String descripcion;
     private String nombre;
     private int id;
+    private Resultado resultado;
 
 
     public void SetNombre(String nombre)
@@ -38,6 +38,10 @@ public class Equipo{
         return id;
     }
 
+    public void SetResultado(Resultado resultado)
+    {
+        this.resultado = resultado;
+    }
 
 
 }
