@@ -9,9 +9,9 @@ public class Equipo{
         this.nombre=nombre;
 
     }
-    private String descripcion = "";
-    private String nombre = "";
-    private int id = 0;
+    private String descripcion;
+    private String nombre;
+    private int id;
 
 
     public void SetNombre(String nombre)
@@ -30,9 +30,11 @@ public class Equipo{
     public String  GetDescripcion(){
         return descripcion;
     }
+
     public void SetId(int id){
         this.id=id;
     }
+
     public int GetId(){
         return id;
     }
