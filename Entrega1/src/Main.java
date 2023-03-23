@@ -6,9 +6,6 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        // este es un comentario de fran
-        System.out.println("Hello world!");
-
         Path archivo = Paths.get("Entrega1/src/resultados.txt");
 
         System.out.println(Files.readString(archivo));
@@ -16,21 +13,9 @@ public class Main {
         String archivoString = Files.readString(archivo);
         String[] archivoDatos = archivoString.split(";");
 
-        System.out.println(archivoDatos.length);
-
-        int cantColumnas = 0;
-        for (String lineas2aux : archivoString.split(",")) {
-            cantColumnas++;
+        for (int i = 1; i < archivoDatos.length; i++) {
+            Partido.CrearPartido(archivoDatos[i]);
         }
-        for (String lineas : archivoString.split(";")) {
-            System.out.println(lineas);
-            for (String lineas2 : lineas.split(",")) {
-                System.out.println(lineas2);
-                Equipo equipo1 = new Equipo();
-            }
-        }
-
-        System.out.println("cantColumnas -> "+ cantColumnas);
-
     }
 }
+

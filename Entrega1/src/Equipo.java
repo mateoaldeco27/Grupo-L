@@ -1,10 +1,9 @@
 
 
 public class Equipo{
-    public void Equipo (int id, String nombre, String descripcion)
+    public void Equipo (int id, String nombre)
     {
 
-        this.descripcion=descripcion;
         this.id=id;
         this.nombre=nombre;
 

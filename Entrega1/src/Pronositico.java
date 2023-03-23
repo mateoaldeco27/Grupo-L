@@ -1,6 +1,6 @@
 public class Pronositico {
 
-    private Partidos partido;
+    private Partido partido;
 
     private Equipo equipo;
 
