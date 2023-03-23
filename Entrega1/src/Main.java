@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        // este es un comentario de fran
         System.out.println("Hello world!");
 
         Path archivo = Paths.get("Entrega1/src/resultados.txt");
