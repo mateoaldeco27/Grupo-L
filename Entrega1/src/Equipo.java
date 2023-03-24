@@ -3,7 +3,7 @@ public class Equipo {
     {
         this.id = id;
         this.nombre = nombre;
-        descripcion = descripcionEquipo;
+        this.descripcion = descripcionEquipo;
 
     }
 
@@ -11,6 +11,7 @@ public class Equipo {
     private String nombre;
     private int id;
     private RESULTADO resultado;
+    private RESULTADO expectativa;
 
     public String GetNombre()
     {
@@ -30,5 +31,15 @@ public class Equipo {
         this.resultado = resultado;
     }
 
+    public RESULTADO getExpectativa() {
+        return expectativa;
+    }
 
+    public void setExpectativa(RESULTADO expectativa) {
+        this.expectativa = expectativa;
+    }
+
+    public RESULTADO getResultado() {
+        return resultado;
+    }
 }
