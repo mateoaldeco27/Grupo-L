@@ -1,4 +1,4 @@
-public class Partido{
+public class Partido {
     public Partido (Equipo Equipo1, int goles1, int goles2, Equipo Equipo2){
         this.Equipo1 = Equipo1;
         this.Equipo2 = Equipo2;
@@ -10,6 +10,21 @@ public class Partido{
     private int goles1;
     private int goles2;
 
+    public Equipo getEquipo1() {
+        return Equipo1;
+    }
+
+    public Equipo getEquipo2() {
+        return Equipo2;
+    }
+
+    public int getGoles1() {
+        return goles1;
+    }
+
+    public int getGoles2() {
+        return goles2;
+    }
 
     public void Ganador()
     {
