@@ -1,4 +1,4 @@
-public enum Resultado {
+public enum RESULTADO {
 
     ganador,
     perdedor,

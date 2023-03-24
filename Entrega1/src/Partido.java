@@ -30,19 +30,19 @@ public class Partido {
     {
         if(goles1>goles2)
         {
-            Equipo1.SetResultado(Resultado.ganador);
-            Equipo2.SetResultado(Resultado.perdedor);
+            Equipo1.SetResultado(RESULTADO.ganador);
+            Equipo2.SetResultado(RESULTADO.perdedor);
 
         }
         else if (goles2>goles1)
         {
-            Equipo1.SetResultado(Resultado.perdedor);
-            Equipo2.SetResultado(Resultado.ganador);
+            Equipo1.SetResultado(RESULTADO.perdedor);
+            Equipo2.SetResultado(RESULTADO.ganador);
         }
         else
         {
-            Equipo1.SetResultado(Resultado.empate);
-            Equipo2.SetResultado(Resultado.empate);
+            Equipo1.SetResultado(RESULTADO.empate);
+            Equipo2.SetResultado(RESULTADO.empate);
         }
     }
 }

@@ -10,7 +10,7 @@ public class Equipo {
     private String descripcion;
     private String nombre;
     private int id;
-    private Resultado resultado;
+    private RESULTADO resultado;
 
     public String GetNombre()
     {
@@ -25,7 +25,7 @@ public class Equipo {
         return id;
     }
 
-    public void SetResultado(Resultado resultado)
+    public void SetResultado(RESULTADO resultado)
     {
         this.resultado = resultado;
     }
