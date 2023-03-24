@@ -26,20 +26,21 @@ public class Partido{
         return goles2;
     }
 
-    public void Ganador() {
+    public void GanadorPartido() {
         if (goles1 > goles2) {
             Equipo1.SetResultado(RESULTADO.ganador);
             Equipo2.SetResultado(RESULTADO.perdedor);
-            System.out.println("gano el equipo 1");
+            System.out.println("Ganó el equipo 1");
 
         } else if (goles2 > goles1) {
             Equipo1.SetResultado(RESULTADO.perdedor);
             Equipo2.SetResultado(RESULTADO.ganador);
-            System.out.println("gano el equipo 2");
+            System.out.println("Ganó el equipo 2");
         } else {
             Equipo1.SetResultado(RESULTADO.empate);
             Equipo2.SetResultado(RESULTADO.empate);
-            System.out.println("empate");
+            System.out.println("Empataron");
         }
     }
+    //
 }

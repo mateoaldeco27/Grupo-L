@@ -24,30 +24,30 @@ public class Pronostico {
             puntos++;
         }
         else{
-            System.out.println("no se acertó ningún pronostico");
+            System.out.println("Mariana no acertó el pronóstico");
         }
 
     }
-   public void ComprobarDatos(String datos) throws IOException
+   public void ComprobarDatos(String datos)
     {
         String[] infoPronostico = datos.split(",");
             if(infoPronostico[1].equals("X"))
             {
                 equipo1.setExpectativa(RESULTADO.ganador);
                 equipo2.setExpectativa(RESULTADO.perdedor);
-                System.out.println("esperamos que gane el equipo 1");
+                System.out.println("Mariana espera que gane el equipo 1");
             }
             else if (infoPronostico[2].equals("X"))
             {
                 equipo1.setExpectativa(RESULTADO.empate);
                 equipo2.setExpectativa(RESULTADO.empate);
-                System.out.println("esperamos que empaten");
+                System.out.println("Mariana espera que empaten");
             }
             else
             {
                 equipo1.setExpectativa(RESULTADO.perdedor);
                 equipo2.setExpectativa(RESULTADO.ganador);
-                System.out.println("esperamos que gane el equipo 2");
+                System.out.println("Mariana espera que gane el equipo 2");
             }
     }
 }
