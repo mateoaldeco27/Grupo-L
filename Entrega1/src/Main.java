@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         //extraer los datos del archivo resultados.txt
-        Path resultado = Paths.get("Entrega1/src/resultados.txt");
+        Path resultado = Paths.get("Entrega1/src/resultados.csv");
         String resultadoString = Files.readString(resultado);
         String[] resultadoDatos = resultadoString.split("\n");
 
@@ -22,7 +22,7 @@ public class Main {
         for (int i = 1; i < resultadoDatos.length; i++)
         {
             //Extracción de datos de la fila de resultados.txt
-            String[] infoPartido = resultadoDatos[i].split(",");
+            String[] infoPartido = resultadoDatos[i].split(";");
 
             //Armado de objetos equipo1, equipo2 y nuevoPartido, con base a las posiciones de las columnas de resultados.txt
             Equipo equipo1 = new Equipo(Integer.parseInt(infoPartido[0]), infoPartido[1], infoPartido[2]);
