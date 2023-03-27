@@ -31,5 +31,8 @@ public class Main {
             Files.createFile(paths);
         }
 
+        lectorcsv archivo = new lectorcsv();
+        archivo.Leercsv("ruta");
+
     }
 }
