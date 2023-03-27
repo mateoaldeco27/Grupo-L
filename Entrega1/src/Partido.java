@@ -10,13 +10,6 @@ public class Partido{
     private int goles1;
     private int goles2;
 
-    public Equipo getEquipo1() {
-        return Equipo1;
-    }
-
-    public Equipo getEquipo2() {
-        return Equipo2;
-    }
 
     public int getGoles1() {
         return goles1;
