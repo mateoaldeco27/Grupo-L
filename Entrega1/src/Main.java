@@ -48,6 +48,11 @@ public class Main {
 
         System.out.println("\nLos puntos totales de Mariana son: " + puntos);
 
+
+
     }
+
+
+
 }
 
