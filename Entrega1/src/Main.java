@@ -28,8 +28,6 @@ public class Main {
             Equipo equipo1 = new Equipo(Integer.parseInt(infoPartido[0]), infoPartido[1], infoPartido[2]);
             Equipo equipo2 = new Equipo(Integer.parseInt(infoPartido[6]), infoPartido[5], infoPartido[7]);
             Partido nuevoPartido = new Partido(equipo1, Integer.parseInt(infoPartido[3]), Integer.parseInt(infoPartido[4]), equipo2);
-            System.out.println("\nEn el Partido "+ i +" jugaron "+ equipo1.GetNombre() +" y "+ equipo2.GetNombre() +". "+ equipo1.GetNombre() +" hizo "+ nuevoPartido.getGoles1() +" gol/goles y "+ equipo2.GetNombre() +" hizo "+ nuevoPartido.getGoles2() +" gol/goles.");
-            System.out.println("El Nombre del Equipo 1 es: "+ equipo1.GetNombre() +", su id es: "+ equipo1.GetId() +" y su descipción es: "+ equipo1.GetDescripcion() +"\nEl Nombre del Equipo 2 es: "+ equipo2.GetNombre() +" su id es: "+ equipo2.GetId() +" y su descipción es: "+ equipo2.GetDescripcion());
 
             //Extracción de datos de la fila, armado del objeto pronostico, y seteo de expectativa; con base al archivo pronostico.csv
             Pronostico nuevoPronostico = new Pronostico(nuevoPartido,equipo1,equipo2);
@@ -41,15 +39,23 @@ public class Main {
             System.out.println("Ganador Partido "+ i +":");
             nuevoPartido.GanadorPartido();
             nuevoPronostico.AcertoElPronostico();
-            System.out.println("En este Partido Mariana obtuvo: " + nuevoPronostico.puntos +" punto/s.");
+            System.out.println("En este Partido Mariana obtuvo: " + this.nuevoPronostico.puntos +" punto/s.");
             puntos = puntos + nuevoPronostico.puntos;
             System.out.println("De momento Mariana tiene: " + puntos +" punto/s.");
+            //mostramos por consola la informacion
+            mostrameInformacionPartidoPorConsola(i,equipo1,equipo2,nuevoPartido,nuevoPronostico,puntos);
         }
 
         System.out.println("\nLos puntos totales de Mariana son: " + puntos);
 
 
 
+
+    }
+
+    public static void mostrameInformacionPartidoPorConsola(int indicePartido, Equipo Equipo1, Equipo Equipo2, Partido Partido, Pronostico nuevoPronostico, int puntosParciales) {
+        System.out.println("\nEn el Partido "+ indicePartido +" jugaron "+ Equipo1.GetNombre() +" y "+ Equipo2.GetNombre() +". "+ Equipo1.GetNombre() +" hizo "+ Partido.getGoles1() +" gol/goles y "+ Equipo2.GetNombre() +" hizo "+ Partido.getGoles2() +" gol/goles.");
+        System.out.println("El Nombre del Equipo 1 es: "+ Equipo1.GetNombre() +", su id es: "+ Equipo1.GetId() +" y su descipción es: "+ Equipo1.GetDescripcion() +"\nEl Nombre del Equipo 2 es: "+ Equipo2.GetNombre() +" su id es: "+ Equipo2.GetId() +" y su descipción es: "+ Equipo2.GetDescripcion());
     }
 
 
