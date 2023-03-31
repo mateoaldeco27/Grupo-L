@@ -35,5 +35,12 @@ public class Partido{
             System.out.println("Empataron");
         }
     }
-    //
+    public String mostrameDatosPartido(int indice) {
+        return "En el partido " + indice + " jugaron:\n" +
+                "Equipo1:" + Equipo1.GetNombre() +
+                ", Equipo2:" + Equipo2.GetNombre() +
+                ", goles1:" + goles1 +
+                ", goles2:" + goles2
+                ;
+    }
 }
