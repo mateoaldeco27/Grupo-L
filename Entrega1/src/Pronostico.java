@@ -30,6 +30,7 @@ public class Pronostico {
     }
    public void ComprobarDatos(String datos)
     {
+
         String[] infoPronostico = datos.split(";");
             if(infoPronostico[1].equals("X"))
             {
