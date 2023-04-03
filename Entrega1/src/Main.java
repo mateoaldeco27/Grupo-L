@@ -9,12 +9,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         //extraer los datos del archivo resultados.csv
-        Path resultado = Paths.get("src/resultados.csv");
+        Path resultado = Paths.get("Entrega1/src/resultados.csv");
         String resultadoString = Files.readString(resultado);
         String[] resultadoDatos = resultadoString.split("\n");
 
         //extraer los datos del archivo pronostico.csv
-        Path pronostico = Paths.get("src/pronostico.csv");
+        Path pronostico = Paths.get("Entrega1/src/pronostico.csv");
         String pronosticoString = Files.readString(pronostico);
         String[] pronosticoDatos = pronosticoString.split("\n");
 
