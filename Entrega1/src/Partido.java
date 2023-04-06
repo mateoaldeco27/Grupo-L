@@ -52,7 +52,6 @@ public class Partido
                 "Equipo1: " + Equipo1.GetNombre() +
                 " | Equipo2: " + Equipo2.GetNombre() +
                 " | Goles1: " + goles1 +
-                " | Goles2: " + goles2
-        );
+                " | Goles2: " + goles2 );
     }
 }

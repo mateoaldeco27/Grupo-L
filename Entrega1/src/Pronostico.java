@@ -6,7 +6,6 @@ public class Pronostico {
         this.partido = partido;
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
-
     }
 
     private Partido partido;
@@ -14,8 +13,7 @@ public class Pronostico {
     private Equipo equipo2;
     public int puntos = 0;
 
-    public void AcertoElPronostico()
-    {
+    public void AcertoElPronostico() {
         if (equipo1.getResultado() == equipo1.getExpectativa())
         {
             System.out.println("Mariana acertó el pronóstico");
@@ -27,14 +25,12 @@ public class Pronostico {
         }
         else{
             System.out.println("Mariana no acertó el pronóstico");
-        }
 
+        }
     }
 
-
     //new modified
-    public /*RESULTADO*/ void ComprobarDatos(String[] infoPronostico)
-    {
+    public /*RESULTADO*/ void ComprobarDatos(String[] infoPronostico) {
 
         if(infoPronostico[3].equals("X"))
         {
@@ -60,7 +56,6 @@ public class Pronostico {
 
         //new
         Participante nuevoParticipante = new Participante(Integer.parseInt(infoPronostico[0]), infoPronostico[1], RESULTADO.ganador);
-
 
     }
 }
