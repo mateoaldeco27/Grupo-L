@@ -8,8 +8,8 @@ public class Partido
         this.goles2 = goles2;
     }
 
-    private Equipo Equipo1;
-    private Equipo Equipo2;
+    Equipo Equipo1;
+    public Equipo Equipo2;
     private int goles1;
     private int goles2;
 
@@ -26,32 +26,33 @@ public class Partido
         return goles2;
     }
 
-    public void GanadorPartido(int i) {
+    public void GanadorPartido(int indicePartido) {
         if (goles1 > goles2) {
             Equipo1.SetResultado(RESULTADO.ganador);
             Equipo2.SetResultado(RESULTADO.perdedor);
-            System.out.println("Ganador Partido " + i + ": equipo 1");
+            System.out.println("Ganador Partido " + indicePartido + ": equipo 1");
 
         } else if (goles2 > goles1) {
             Equipo1.SetResultado(RESULTADO.perdedor);
             Equipo2.SetResultado(RESULTADO.ganador);
             //System.out.println("GanÃ³ el equipo 2");
-            System.out.println("Ganador Partido " + i + ": equipo 2");
+            System.out.println("Ganador Partido " + indicePartido + ": equipo 2");
         } else {
             Equipo1.SetResultado(RESULTADO.empate);
             Equipo2.SetResultado(RESULTADO.empate);
             //System.out.println("Empataron");
-            System.out.println("Ganador Partido " + i + ": empataron");
+            System.out.println("Ganador Partido " + indicePartido + ": empataron");
         }
     }
 
     //new modified
     public String mostrameDatosPartido(int indice)
     {
-       return("En el partido " + indice + " jugaron:\n" +
+        return("En el partido " + indice + " jugaron:\n" +
                 "Equipo1: " + Equipo1.GetNombre() +
                 " | Equipo2: " + Equipo2.GetNombre() +
                 " | Goles1: " + goles1 +
-                " | Goles2: " + goles2 );
+                " | Goles2: " + goles2
+        );
     }
 }
