@@ -68,7 +68,7 @@ public class Main {
                 }
             }
         }
-        
+
         //Datos totales
         System.out.println("\nLos puntos totales de Mariana son: " + puntos);
         System.out.println("La cantidad de partidos son: " + partidos.size());
