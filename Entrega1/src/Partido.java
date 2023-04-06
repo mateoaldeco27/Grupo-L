@@ -2,6 +2,7 @@ public class Partido
 {
     public Partido(Equipo Equipo1, int goles1, int goles2, Equipo Equipo2)
     {
+
         this.Equipo1 = Equipo1;
         this.Equipo2 = Equipo2;
         this.goles1 = goles1;

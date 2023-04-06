@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Pronostico {
     public Pronostico(Partido partido, Equipo equipo1, Equipo equipo2)
@@ -12,52 +13,48 @@ public class Pronostico {
     private Partido partido;
     private Equipo equipo1;
     private Equipo equipo2;
+
     public int puntos = 0;
 
-    public void AcertoElPronostico()
+    public void AcertoElPronostico(ArrayList <Participante> participantes, int id)
     {
         if (equipo1.getResultado() == equipo1.getExpectativa())
         {
-            System.out.println("Mariana acertó el pronóstico");
+            System.out.println(participantes.get(id-1).getNombre() + " acertó el pronóstico");
             puntos++;
         } else if (equipo2.getResultado() == equipo2.getExpectativa())
         {
-            System.out.println("Mariana acertó el pronóstico");
+            System.out.println(participantes.get(id-1).getNombre() + " acertó el pronóstico");
             puntos++;
         }
         else{
-            System.out.println("Mariana no acertó el pronóstico");
+            System.out.println(participantes.get(id-1).getNombre() + " no acertó el pronóstico");
         }
-
     }
 
 
+
     //new modified
-    public /*RESULTADO*/ void ComprobarDatos(String[] infoPronostico)
+    public /*RESULTADO*/ void ComprobarDatos(String[] infoPronostico, ArrayList <Participante> participantes, int id)
     {
-        System.out.println(infoPronostico[3]);
         if(infoPronostico[3].equals("X"))
         {
             equipo1.setExpectativa(RESULTADO.ganador);
             equipo2.setExpectativa(RESULTADO.perdedor);
-            System.out.println("Mariana espera que gane el equipo 1");
+            System.out.println(participantes.get(id-1).getNombre() + " espera que gane el equipo 1");
         }
         else if (infoPronostico[4].equals("X"))
         {
             equipo1.setExpectativa(RESULTADO.empate);
             equipo2.setExpectativa(RESULTADO.empate);
-            System.out.println("Mariana espera que empaten");
+            System.out.println(participantes.get(id-1).getNombre() + " espera que empaten");
         }
         else
         {
             equipo1.setExpectativa(RESULTADO.perdedor);
             equipo2.setExpectativa(RESULTADO.ganador);
-            System.out.println("Mariana espera que gane el equipo 2");
+            System.out.println(participantes.get(id-1).getNombre() + " espera que gane el equipo 2");
         }
-
-        /*/new
-        Participante nuevoParticipante = new Participante(Integer.parseInt(infoPronostico[0]), infoPronostico[1], RESULTADO.ganador);
-        /*/
 
     }
 }
