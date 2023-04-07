@@ -44,7 +44,6 @@ public class Main {
                 Participante nuevoParticipante = new Participante(Integer.parseInt(infoPronostico[0]), infoPronostico[1], RESULTADO.ganador);
                 participantes.add(nuevoParticipante);
                 id++;
-
             }
 
             indicePartido = i;
@@ -54,7 +53,7 @@ public class Main {
             }
 
             //Extracción de datos de la fila de resultados.csv
-            System.out.println("indicePartido -> "+ indicePartido +" i -> "+ i);
+            System.out.println("indicePartido -> "+ indicePartido +" i -> "+ i); //ELIMINAR
             String[] infoPartido = resultadoDatos[indicePartido].split(";");
 
             //Armado de objetos equipo1, equipo2 y nuevoPartido, con base a las posiciones de las columnas de resultados.csv
@@ -67,7 +66,7 @@ public class Main {
             }
 
             //Muestra num de partido e informacion
-            System.out.println(nuevoPartido.mostrameDatosPartido(indicePartido));
+            System.out.println(nuevoPartido.mostrameDatosPartido(indicePartido));//ELIMINAR
 
             String[] infoPronostico2 = pronosticoDatos[i].split(";");
 
@@ -111,7 +110,7 @@ public class Main {
             for (int k = 0; k < puntos.size(); k++) {
                 System.out.println("puntos.get("+ k +") | " + participantes.get(k).getNombre() + " --> " + puntos.get(k) + " puntos");
             }
-
+            mostramePorConsola(nuevoPartido, indicePartido, participantes, id, nuevoPronostico, puntos, infoPronostico);
         }
 
         /*
@@ -203,6 +202,35 @@ public class Main {
         for (Participante listaParticipantes : participantes) {
             System.out.println(listaParticipantes.getNombre());
         }
+    }
+    public static void mostramePorConsola(Partido nuevoPartido, int indicePartido, ArrayList<Participante> participantes, int idParticipantes, Pronostico nuevoPronostico, ArrayList<Integer> puntos,String[] infoPronostico ) {
+
+        System.out.println("000000000000000000000000");
+
+        //Muestra número de partidos e información
+        System.out.println(nuevoPartido.mostrameDatosPartido(indicePartido));
+
+        //(nombre) espera que...
+        nuevoPronostico.ComprobarDatos(infoPronostico, participantes, idParticipantes);
+
+        //quién ganó el partido
+        nuevoPartido.GanadorPartido(indicePartido);
+
+        //Salida personalizada por cada participante
+        nuevoPronostico.AcertoElPronostico( participantes, idParticipantes);
+
+        System.out.println("-------------\nEn este Partido " + participantes.get(idParticipantes - 1).getNombre() + " obtuvo: " + nuevoPronostico.puntos + " punto/s.");
+
+        for (int k = 0; k < puntos.size(); k++) {
+            System.out.println("De momento, "+ participantes.get(k).getNombre() + " tiene " + puntos.get(k) + " punto/s.\n");
+        }
+
+        for (int i = 0; i < puntos.size(); i++) {
+            System.out.println(puntos.get(i));
+        }
+
+        System.out.println("000000000000000000000000");
+
     }
 
 }
