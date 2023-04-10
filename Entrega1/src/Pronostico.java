@@ -1,4 +1,4 @@
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.ArrayList;
 
 public class Pronostico {
@@ -14,28 +14,54 @@ public class Pronostico {
     private Equipo equipo1;
     private Equipo equipo2;
 
-    public int puntos = 0;
+    //public int puntos = 0;
 
+
+     private Participante participante;
+
+     public void setParticipante (Participante participante) {
+       this.participante = participante;
+     }
+
+
+  
+  
     public void AcertoElPronostico(ArrayList <Participante> participantes, int id)
     {
         if (equipo1.getResultado() == equipo1.getExpectativa())
         {
             System.out.println(participantes.get(id-1).getNombre() + " acertó el pronóstico");
-            puntos++;
-        } else if (equipo2.getResultado() == equipo2.getExpectativa())
+          System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
+        + " obtuvo: 1 punto.");
+          participante.sumarPunto();
+            //puntos++;
+        } 
+          /*
+        
+        else if (equipo2.getResultado() == equipo2.getExpectativa())
         {
             System.out.println(participantes.get(id-1).getNombre() + " acertó el pronóstico");
-            puntos++;
+
+          
+          System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
+        + " obtuvo: 1 punto.");
+
+          
+            //puntos++;
+          participante.sumarPunto();
         }
+*/
         else{
             System.out.println(participantes.get(id-1).getNombre() + " no acertó el pronóstico");
+
+
+          System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
+        + " obtuvo: 0 puntos.");
+          
         }
     }
 
-
-
-    //new modified
-    public /*RESULTADO*/ void ComprobarDatos(String[] infoPronostico, ArrayList <Participante> participantes, int id)
+    public void ComprobarDatos(String[] infoPronostico, ArrayList <Participante> participantes, int id)
     {
         if(infoPronostico[3].equals("X"))
         {
