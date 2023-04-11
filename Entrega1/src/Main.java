@@ -40,6 +40,7 @@ public class Main {
 
       String[] infoPronostico = pronosticoDatos[i].split(";");
 
+
       // creo participantes con if
       if (id != Integer.parseInt(infoPronostico[0])) {
         Participante nuevoParticipante = new Participante(Integer.parseInt(infoPronostico[0]), infoPronostico[1]);
@@ -49,7 +50,7 @@ public class Main {
 
       indicePartido = i;
 
-      while (indicePartido > 5) {
+      while (indicePartido > resultadoDatos.length-1) {
         indicePartido = indicePartido - (resultadoDatos.length - 1);
       }
 
@@ -58,11 +59,11 @@ public class Main {
       
       String[] infoPartido = resultadoDatos[indicePartido].split(";");
 
+
       // Armado de objetos equipo1, equipo2 y nuevoPartido, con base a las posiciones de las columnas de resultados.csv
-      Equipo equipo1 = new Equipo(Integer.parseInt(infoPartido[0]), infoPartido[1], infoPartido[2]);
-      Equipo equipo2 = new Equipo(Integer.parseInt(infoPartido[6]), infoPartido[5], infoPartido[7]);
-      Partido nuevoPartido = new Partido(equipo1, Integer.parseInt(infoPartido[3]), Integer.parseInt(infoPartido[4]),
-          equipo2);
+      Equipo equipo1 = new Equipo(Integer.parseInt(infoPartido[2]), infoPartido[3], infoPartido[4]);
+      Equipo equipo2 = new Equipo(Integer.parseInt(infoPartido[8]), infoPartido[7], infoPartido[9]);
+      Partido nuevoPartido = new Partido(equipo1, Integer.parseInt(infoPartido[5]), Integer.parseInt(infoPartido[6]), equipo2);
 
       if (partidos.size() < resultadoDatos.length - 1) {
         partidos.add(nuevoPartido);

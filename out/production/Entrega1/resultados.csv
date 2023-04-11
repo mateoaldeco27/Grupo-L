@@ -1,6 +1,7 @@
-﻿id-Equipo 1;Equipo 1;descripción-Equipo 1;Cant. goles 1;Cant. goles 2;Equipo 2;id-Equipo 2;descripción-Equipo 2
-1;Argentina;Campeones del mundo;1;2;Arabia Saudita;2;Seleccionado árabe
-3;Polonia;Seleccionado polaco;0;0;México;4;Seleccionado mexicano
-5;Alemania;Seleccionado alemán;3;0;Arabia Saudita;2;Seleccionado árabe
-3;Polonia;Seleccionado polaco;2;2;México;4;Seleccionado mexicano
-3;Polonia;Seleccionado polaco;0;0;Dinamarca;6;Seleccionado dinamarqués
+﻿Ronda-id;Ronda-nro;id-Equipo 1;Equipo 1;descripción-Equipo 1;Cant. goles 1;Cant. goles 2;Equipo 2;id-Equipo 2;descripción-Equipo 2
+1;1;1;Argentina;Campeones del mundo;1;2;Arabia Saudita;2;Seleccionado árabe
+1;1;3;Polonia;Seleccionado polaco;0;0;México;4;Seleccionado mexicano
+1;1;5;Alemania;Seleccionado alemán;3;0;Dinamarca;6;Seleccionado danés
+2;2;1;Argentina ;Campeones del mundo;2;0;México;4;Seleccionado mexicano
+2;2;3;Polonia;Seleccionado polaco;1;1;Dinamarca;6;Seleccionado danés
+2;2;5;Alemania;Seleccionado alemán;3;1;Arabia Saudita;2;Seleccionado árabe
