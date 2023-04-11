@@ -27,7 +27,7 @@ public class Main {
 
     // Extracción de datos del .csv y armado de objetos Equipo y Partido
     
-    ArrayList<Integer> puntos = new ArrayList<>();
+
     
     // agrego id
     int id = 0;
@@ -50,6 +50,7 @@ public class Main {
 
       indicePartido = i;
 
+      Ronda nuevaRonda = new Ronda();
       while (indicePartido > resultadoDatos.length-1) {
         indicePartido = indicePartido - (resultadoDatos.length - 1);
       }
@@ -69,61 +70,16 @@ public class Main {
         partidos.add(nuevoPartido);
       }
 
-      // Muestra num de partido e informacion
-      //System.out.println(nuevoPartido.mostrameDatosPartido(indicePartido));// ELIMINAR
-
-      String[] infoPronostico2 = pronosticoDatos[i].split(";");
-
       // Extracción de datos de la fila, armado del objeto pronostico, y seteo de
       // expectativa; con base al archivo pronostico.csv
       Pronostico nuevoPronostico = new Pronostico(nuevoPartido, equipo1, equipo2);
 
       nuevoPronostico.setParticipante(participantes.get(id - 1));
 
-      /*
-      for (String lista_infoPronostico2 : infoPronostico2) {
-        //System.out.println(lista_infoPronostico2);
-      }
-      */
-
-      // (nombre) espera que...
-      //nuevoPronostico.ComprobarDatos(infoPronostico2, participantes, id);
-
-      // indicePartido -> indicePartido
-      //nuevoPartido.GanadorPartido(indicePartido);
-
-      // Salida personalizada por cada participante
-      //nuevoPronostico.AcertoElPronostico(participantes, id);
-
-      // System.out.println("indice de partido pronostico -> "+ i);
-
-      //System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre() + " obtuvo: " + nuevoPronostico.puntos + " punto/s.\n");
-
-      //System.out.println("id -> " + id);
-
-      // Todos los objetos puntos comienzan con 0 para guardar correctamente el dato
-      
-    /*
-      if (puntos.size() < participantes.size()) {
-        puntos.add(0);
-      }
-      */
-
-      // modificar valor de la coleccion puntos
-
-      //System.out.println("puntos.get(" + (id - 1) + ") -> " + puntos.get(id - 1));
-
-      //puntosTotales = puntos.get(id - 1) + nuevoPronostico.puntos;
-      //System.out.println("puntosTotales -> " + puntosTotales);
-
-      //System.out.println("nuevoPronostico.puntos -> " + nuevoPronostico.puntos);
-      //puntos.set((id - 1), puntosTotales);
-
-      
-      mostramePorConsola(nuevoPartido, indicePartido, participantes, id, nuevoPronostico, puntos, infoPronostico);
+      //mostramePorConsola(nuevoPartido, indicePartido, participantes, id, nuevoPronostico, puntos, infoPronostico);
     }
 
-    System.out.println("\nCantidad de partidos son: " + partidos.size() + " y son:");
+    /*System.out.println("\nCantidad de partidos son: " + partidos.size() + " y son:");
     for (int i = 0; i < partidos.size(); i++) {
       System.out.println("Partido " + (i + 1) + " -> Equipo 1: " + partidos.get(i).Equipo1.GetNombre() + " | Equipo 2: "
           + partidos.get(i).Equipo2.GetNombre() + ".\n"
@@ -134,7 +90,7 @@ public class Main {
     for (Participante listaParticipantes : participantes) {
       System.out.println(listaParticipantes.getNombre());
     }
-
+    */
 
      listaGanadores(participantes);
     

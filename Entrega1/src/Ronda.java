@@ -1,10 +1,24 @@
-public class Ronda extends Partido{
-    public Ronda(Equipo Equipo1, int goles1, int goles2, Equipo Equipo2) {
-        super(Equipo1, goles1, goles2, Equipo2);
+import java.util.ArrayList;
+
+public class Ronda {
+    public Ronda(Partido partido)
+    {
+        this.partido = partido;
+
     }
 
     private int numero;
+    private int resultadoRonda;
+    private Partido partido;
+
+    ArrayList<Partido> partidosaux = new ArrayList<>();
 
 
+
+    public void siguienteRonda() {
+        this.numero++;
+    }
+
+    public int getNumero(){return numero;}
 
 }
