@@ -7,13 +7,14 @@ public class Ronda {
 
     }
 
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
     private int numero;
     private int resultadoRonda;
     private Partido partido;
-
-    ArrayList<Partido> partidosaux = new ArrayList<>();
-
-
+    private static final int partidosxronda = 3;
 
     public void siguienteRonda() {
         this.numero++;

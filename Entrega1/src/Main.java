@@ -7,23 +7,31 @@ import java.util.ArrayList;
 public class Main {
   public static void main(String[] args) throws IOException {
 
-    // extraer los datos del archivo resultados.csv
-    Path resultado = Paths.get("Entrega1/src/resultados.csv");
-    // Path resultado = Paths.get("./resultados.csv");
-    String resultadoString = Files.readString(resultado);
-    String[] resultadoDatos = resultadoString.split("\n");
+      // extraer los datos del archivo resultados.csv
+      Path resultado = Paths.get("Entrega1/src/resultados.csv");
+      // extraer los datos del archivo pronostico.csv
+      Path pronostico = Paths.get("Entrega1/src/pronostico.csv");
+      if (!Files.exists(resultado) || !Files.exists(pronostico)) {
+          System.out.println("Error en la ruta del archivo");
+          System.exit(0);
+      }
+      // Path resultado = Paths.get("./resultados.csv");
+      String resultadoString = Files.readString(resultado);
+      String[] resultadoDatos = resultadoString.split("\n");
 
-    // extraer los datos del archivo pronostico.csv
-    Path pronostico = Paths.get("Entrega1/src/pronostico.csv");
-    // Path pronostico = Paths.get("./pronostico.csv");
-    String pronosticoString = Files.readString(pronostico);
-    String[] pronosticoDatos = pronosticoString.split("\n");
+      // Path pronostico = Paths.get("./pronostico.csv");
+      String pronosticoString = Files.readString(pronostico);
+      String[] pronosticoDatos = pronosticoString.split("\n");
 
     // new
     ArrayList<Partido> partidos = new ArrayList<>();
 
     // new
     ArrayList<Participante> participantes = new ArrayList<>();
+
+    ArrayList<Ronda> rondas = new ArrayList<>();
+
+    ArrayList<Integer> idRondas = new ArrayList<>();
 
     // Extracción de datos del .csv y armado de objetos Equipo y Partido
     
@@ -50,7 +58,7 @@ public class Main {
 
       indicePartido = i;
 
-      Ronda nuevaRonda = new Ronda();
+
       while (indicePartido > resultadoDatos.length-1) {
         indicePartido = indicePartido - (resultadoDatos.length - 1);
       }
@@ -66,11 +74,19 @@ public class Main {
       Equipo equipo2 = new Equipo(Integer.parseInt(infoPartido[8]), infoPartido[7], infoPartido[9]);
       Partido nuevoPartido = new Partido(equipo1, Integer.parseInt(infoPartido[5]), Integer.parseInt(infoPartido[6]), equipo2);
 
-      if (partidos.size() < resultadoDatos.length - 1) {
+      if (partidos.size() < resultadoDatos.length-1) {
         partidos.add(nuevoPartido);
       }
 
-      // Extracción de datos de la fila, armado del objeto pronostico, y seteo de
+      ronda(nuevoPartido, infoPartido, resultadoDatos, rondas, idRondas);
+
+
+
+
+
+
+
+        // Extracción de datos de la fila, armado del objeto pronostico, y seteo de
       // expectativa; con base al archivo pronostico.csv
       Pronostico nuevoPronostico = new Pronostico(nuevoPartido, equipo1, equipo2);
 
@@ -93,7 +109,9 @@ public class Main {
     */
 
      listaGanadores(participantes);
-    
+
+     System.out.println(rondas.size());
+
   }
 
   public static void mostramePorConsola(Partido nuevoPartido, int indicePartido, ArrayList<Participante> participantes,
@@ -201,5 +219,28 @@ System.out.println("⬇️⬇️⬇️⬇️⬇️ MAYOR PUNTAJE ⬇️⬇️⬇
 
 
 }
+    public static void ronda (Partido nuevoPartido, String[] infoPartido, String[] resultadoDatos, ArrayList<Ronda> rondas, ArrayList<Integer> idRondas)  {
+
+      //int idRonda = 0;
+      //System.out.println(idRondas.contains(Integer.parseInt(infoPartido[0])) );
+
+
+            if (!idRondas.contains(Integer.parseInt(infoPartido[0]))) {
+                idRondas.add(Integer.parseInt(infoPartido[0]));
+                Ronda nuevaRonda = new Ronda(nuevoPartido);
+                rondas.add(nuevaRonda);
+                nuevaRonda.setNumero(Integer.parseInt(infoPartido[0]));
+        }
+        //System.err.println(idRonda);
+        //System.err.println(Integer.parseInt(infoPartido[0]));
+        System.err.println(rondas.size());
+
+
+
+
+
+
+
+    }
 
 }
