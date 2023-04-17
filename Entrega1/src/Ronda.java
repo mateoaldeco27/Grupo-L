@@ -14,12 +14,16 @@ public class Ronda {
     private int numero;
     private int resultadoRonda;
     private Partido partido;
-    private static final int partidosxronda = 3;
+    private int partidosxronda = 3;
 
     public void siguienteRonda() {
         this.numero++;
     }
 
     public int getNumero(){return numero;}
+
+    public int getPartidosxronda() {
+        return partidosxronda;
+    }
 
 }

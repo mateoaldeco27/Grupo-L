@@ -83,12 +83,14 @@ public class Main {
             nuevoPronostico.setParticipante(participantes.get(id - 1));
 
             mostramePorConsola(nuevoPartido, indicePartido, participantes, id, nuevoPronostico, pronosticoColumna_Fila);
+            pruebaRonda(indicePartido,nuevoPartido, rondas);
         }
 
 
         listaGanadores(participantes);
 
-        System.out.println(rondas.size());
+
+        System.out.println("arraylist.size = " + rondas.size());
 
     }
 
@@ -168,20 +170,32 @@ public class Main {
 
     }
 
-    public static void ronda(Partido nuevoPartido, String[] infoPartido, String[] resultadoDatos, ArrayList<Ronda> rondas, ArrayList<Integer> idRondas) {
+    public static void ronda(Partido nuevoPartido, String[] infoPartido, String[] resultadoDatos, ArrayList<Ronda> rondas, ArrayList<Partido> partidos ) {
 
         //int idRonda = 0;
         //System.out.println(idRondas.contains(Integer.parseInt(infoPartido[0]))
+
+
         int temp = 0;
 
          for (int i = 1; i < 10; i++) {
             if (temp != Integer.parseInt(infoPartido[0])) {
-                System.out.println("las salidas del for son: " + Integer.parseInt(infoPartido[0]) + "\n");
+                //System.out.println("las salidas del for son: " + Integer.parseInt(infoPartido[0]) + "\n");
+                Ronda nuevaRonda = new Ronda(nuevoPartido);
+                rondas.add(nuevaRonda);
+
             }
         }
 
         Ronda nuevaRonda = new Ronda(nuevoPartido);
         rondas.add(nuevaRonda);
+
+        if (partidos.size() == nuevaRonda.getPartidosxronda())
+        {
+
+        }
+
+
 
         System.out.println("las salidas del for son: " + Integer.parseInt(infoPartido[0]) + "\n");
 
@@ -199,14 +213,27 @@ public class Main {
                 rondas.add(nuevaRonda);
                 nuevaRonda.setNumero(Integer.parseInt(infoPartido[0]));*/
     }
+    public static void pruebaRonda(int i, Partido nuevoPartido,ArrayList<Ronda> rondas) {
+
+        // divido el iterador por la cantidad de partidos por ronda(3)
+        int resto = i % 3;
+        System.out.println(resto);
+        if (resto == 0) {
+
+            //cada 3 partidos crea una nueva ronda y la añade a la arraylist rondas
+            System.out.println("------ acá hay una nueva ronda --------");
+            Ronda nuevaRonda = new Ronda(nuevoPartido);
+            rondas.add(nuevaRonda);
+
+        }
 
 
-    //System.err.println(idRonda);
+        //System.err.println(idRonda);
 
-    //System.err.println(Integer.parseInt(infoPartido[0]));
-    //System.err.println(rondas.size());
+        //System.err.println(Integer.parseInt(infoPartido[0]));
+        //System.err.println(rondas.size());
 
-
+    }
 }
 
 
