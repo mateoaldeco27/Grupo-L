@@ -43,6 +43,11 @@ public class Main {
         int indicePartido = 0;
 
         int puntosTotales = 0;
+
+        // ronda predeterminada
+        Ronda nuevaRonda = new Ronda();
+        rondas.add(nuevaRonda);
+
         for (int i = 1; i < pronosticoDatosFila.length; i++) {
 
             String[] pronosticoColumna_Fila = pronosticoDatosFila[i].split(";");
@@ -83,14 +88,14 @@ public class Main {
             nuevoPronostico.setParticipante(participantes.get(id - 1));
 
             mostramePorConsola(nuevoPartido, indicePartido, participantes, id, nuevoPronostico, pronosticoColumna_Fila);
-            pruebaRonda(indicePartido,nuevoPartido, rondas);
+            ronda(indicePartido, id, nuevoPartido, rondas, resultadoDatosFila,resultadoColumna_Fila, participantes);
         }
 
 
         listaGanadores(participantes);
 
 
-        System.out.println("arraylist.size = " + rondas.size());
+        System.out.println("rondas.size = " + rondas.size());
 
     }
 
@@ -170,69 +175,44 @@ public class Main {
 
     }
 
-    public static void ronda(Partido nuevoPartido, String[] infoPartido, String[] resultadoDatos, ArrayList<Ronda> rondas, ArrayList<Partido> partidos ) {
-
-        //int idRonda = 0;
-        //System.out.println(idRondas.contains(Integer.parseInt(infoPartido[0]))
-
-
-        int temp = 0;
-
-         for (int i = 1; i < 10; i++) {
-            if (temp != Integer.parseInt(infoPartido[0])) {
-                //System.out.println("las salidas del for son: " + Integer.parseInt(infoPartido[0]) + "\n");
-                Ronda nuevaRonda = new Ronda(nuevoPartido);
-                rondas.add(nuevaRonda);
-
-            }
-        }
-
-        Ronda nuevaRonda = new Ronda(nuevoPartido);
-        rondas.add(nuevaRonda);
-
-        if (partidos.size() == nuevaRonda.getPartidosxronda())
-        {
-
-        }
-
-
-
-        System.out.println("las salidas del for son: " + Integer.parseInt(infoPartido[0]) + "\n");
-
-        /*id =0;
-        if (rondas.get().getNumero()) {
-                Ronda nuevaRonda = new Ronda(nuevoPartido);
-                idRondas.add(Integer.parseInt(infoPartido[0]));
-                rondas.add(nuevaRonda);
-                nuevaRonda.setNumero(Integer.parseInt(infoPartido[0]));
-        }
-
-        if (!idRondas.contains(Integer.parseInt(infoPartido[0]))) {
-                Ronda nuevaRonda = new Ronda(nuevoPartido);
-                idRondas.add(Integer.parseInt(infoPartido[0]));
-                rondas.add(nuevaRonda);
-                nuevaRonda.setNumero(Integer.parseInt(infoPartido[0]));*/
-    }
-    public static void pruebaRonda(int i, Partido nuevoPartido,ArrayList<Ronda> rondas) {
+    public static void ronda(int i,int idParticipantes, Partido nuevoPartido,ArrayList<Ronda> rondas,  String[] resultadoDatosFila,String[] resultadoColumna_Fila, ArrayList<Participante> participantes) {
 
         // divido el iterador por la cantidad de partidos por ronda(3)
         int resto = i % 3;
         System.out.println(resto);
         if (resto == 0) {
-
+            rondas.get(rondas.size()-1).agregarPartido(nuevoPartido);
+            System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
             //cada 3 partidos crea una nueva ronda y la añade a la arraylist rondas
             System.out.println("------ acá hay una nueva ronda --------");
-            Ronda nuevaRonda = new Ronda(nuevoPartido);
+            Ronda nuevaRonda = new Ronda();
             rondas.add(nuevaRonda);
+            nuevaRonda.setResultadoRonda(participantes.get(idParticipantes - 1).getPuntos());
+            System.out.println("EL RESULTADO DE ESTA RONDA ES: " + nuevaRonda.getResultadoRonda());
+            participantes.get(idParticipantes - 1).setPuntos(0);
+
 
         }
+        else {
+          /*  for (int j = 1; j < resultadoDatosFila.length; j++)
+            {
+                for (int k = 1; k < resultadoColumna_Fila.length; k++)
+                {*/
+                    if (Integer.parseInt(resultadoColumna_Fila[1]) <= 3)
+                    {
+                        rondas.get(rondas.size() - 1).agregarPartido(nuevoPartido);
+                        System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
+                    }
+              //}
+            //}
 
 
-        //System.err.println(idRonda);
-
-        //System.err.println(Integer.parseInt(infoPartido[0]));
-        //System.err.println(rondas.size());
-
+            System.out.println("resultadoColumna_Fila[1]: " + (resultadoColumna_Fila[1]));
+        }
+        for (int j = 0; j < rondas.size(); j++) {
+            System.out.println("algun texto a ver.." + rondas.get(j).partidos.size());
+        }
+        System.out.println("EL RESULTADO FINAL ES: " + rondas.get(rondas.size()-1).getResultadoRondaFinal());
     }
 }
 

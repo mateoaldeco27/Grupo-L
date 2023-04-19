@@ -11,6 +11,10 @@ public class Participante {
     private String nombre;
     //private RESULTADO expectativa;
 
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
     private int puntos;
     //private int puntosTotales;
     public void sumarPunto () {
