@@ -14,8 +14,6 @@ public class Pronostico {
     private Equipo equipo1;
     private Equipo equipo2;
 
-    //public int puntos = 0;
-
 
      private Participante participante;
 
@@ -23,39 +21,20 @@ public class Pronostico {
        this.participante = participante;
      }
 
-
-  
-  
-    public void AcertoElPronostico(ArrayList <Participante> participantes, int id)
-    {
+     public void AcertoElPronostico(ArrayList <Participante> participantes, int id)
+     {
         if (equipo1.getResultado() == equipo1.getExpectativa())
         {
             System.out.println(participantes.get(id-1).getNombre() + " acertó el pronóstico");
           System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
         + " obtuvo: 1 punto.");
           participante.sumarPunto();
-            //puntos++;
-        } 
-          /*
-        
-        else if (equipo2.getResultado() == equipo2.getExpectativa())
-        {
-            System.out.println(participantes.get(id-1).getNombre() + " acertó el pronóstico");
-
-          
-          System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
-        + " obtuvo: 1 punto.");
-
-          
-            //puntos++;
-          participante.sumarPunto();
         }
-*/
-        else{
+        else
+        {
             System.out.println(participantes.get(id-1).getNombre() + " no acertó el pronóstico");
 
-
-          System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
+            System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
         + " obtuvo: 0 puntos.");
           
         }

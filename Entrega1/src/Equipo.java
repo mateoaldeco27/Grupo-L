@@ -18,14 +18,6 @@ public class Equipo {
         return nombre;
     }
 
-    public String  GetDescripcion(){
-        return descripcion;
-    }
-
-    public int GetId(){
-        return id;
-    }
-
     public void SetResultado(RESULTADO resultado)
     {
         this.resultado = resultado;
