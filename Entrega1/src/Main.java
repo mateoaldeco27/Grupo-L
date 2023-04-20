@@ -171,8 +171,9 @@ public class Main {
             rondas.add(nuevaRonda);
             nuevaRonda.setResultadoRondaParcial(participantes.get(idParticipantes - 1).getPuntos());
             System.out.println("EL RESULTADO DE ESTA RONDA ES: " + nuevaRonda.getResultadoRondaParcial());
+            nuevaRonda.sumaResultadoRondaFinal();
             //participantes.get(idParticipantes - 1).sumaPuntosFinales();
-            //participantes.get(idParticipantes - 1).setPuntos(0);
+            participantes.get(idParticipantes - 1).setPuntos(0);
 
         }
         else {
@@ -182,7 +183,7 @@ public class Main {
                         System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
                     }
         }
-
+        System.out.println("EL RESULTADO FINAL ES: " + rondas.get(rondas.size()-1).getResultadoRondaFinal());
     }
 }
 
