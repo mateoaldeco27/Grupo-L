@@ -27,27 +27,22 @@ public class Main {
         String[] resultadoDatosFila = resultadoString.split("\n");
         String[] pronosticoDatosFila = pronosticoString.split("\n");
 
-        // new
+
         ArrayList<Partido> partidos = new ArrayList<>();
-        // new
+
         ArrayList<Participante> participantes = new ArrayList<>();
 
         ArrayList<Ronda> rondas = new ArrayList<>();
-        ArrayList<Integer> idRondas = new ArrayList<>();
-
-        // Extracción de datos del .csv y armado de objetos Equipo y Partido
-
 
         // agrego id
         int id = 0;
         int indicePartido = 0;
 
-        int puntosTotales = 0;
-
         // ronda predeterminada
         Ronda nuevaRonda = new Ronda();
         rondas.add(nuevaRonda);
 
+        // Extracción de datos del .csv y armado de objetos Equipo y Partido
         for (int i = 1; i < pronosticoDatosFila.length; i++) {
 
             String[] pronosticoColumna_Fila = pronosticoDatosFila[i].split(";");
@@ -80,7 +75,6 @@ public class Main {
                 partidos.add(nuevoPartido);
             }
 
-            //ronda(nuevoPartido, resultadoColumna_Fila, resultadoDatosFila, rondas, idRondas);
 
             // Extracción de datos de la fila, armado del objeto pronostico, y seteo de expectativa; con base al archivo pronostico.csv
             Pronostico nuevoPronostico = new Pronostico(nuevoPartido, equipo1, equipo2);
@@ -91,12 +85,9 @@ public class Main {
             ronda(indicePartido, id, nuevoPartido, rondas, resultadoDatosFila,resultadoColumna_Fila, participantes);
         }
 
-
         listaGanadores(participantes);
 
-
         System.out.println("rondas.size = " + rondas.size());
-
     }
 
     public static void mostramePorConsola(Partido nuevoPartido, int indicePartido, ArrayList<Participante> participantes,
@@ -126,25 +117,18 @@ public class Main {
 
         System.out.println("000000000000000000000000");
 
-    /*for (int k = 0; k < puntos.size(); k++) {
-        System.out.println( "puntos.get(" + k + ") | " + participantes.get(k).getNombre() + " --> " + participantes.get(k).getPuntos() + " puntos");
-    }*/
     }
 
     public static void listaGanadores(ArrayList<Participante> participantes) {
         ArrayList<Participante> participantesAux = (ArrayList<Participante>) participantes.clone();
 
-
         System.out.println("\n-------------------------\n\t   ¡GANADORES!\n");
 
         int max = participantesAux.get(0).getPuntos();
 
-//System.out.println(max);
-
         int min = participantesAux.get(0).getPuntos();
         int jmax = 0;
         int jmin = 0;
-
 
         System.out.println("⬇️⬇️⬇️⬇️⬇️ MAYOR PUNTAJE ⬇️⬇️⬇️⬇️⬇️");
         System.out.println("-------------------------");
@@ -160,7 +144,6 @@ public class Main {
                 } else {
                     min = participantesAux.get(j).getPuntos();
                     jmin = j;
-
                 }
             }
             System.out.println(participantesAux.get(jmax).getNombre() + "\t|\t" + max + "\tPUNTO/S" + "\n-------------------------");
@@ -171,15 +154,12 @@ public class Main {
         }
         System.out.println(participantesAux.get(0).getNombre() + "\t|\t" + min + "\tPUNTO/S\n-------------------------");
         System.out.println("⬆️⬆️⬆️⬆️⬆️MENOR PUNTAJE ⬆️⬆️⬆️⬆️⬆️");
-
-
     }
 
     public static void ronda(int i,int idParticipantes, Partido nuevoPartido,ArrayList<Ronda> rondas,  String[] resultadoDatosFila,String[] resultadoColumna_Fila, ArrayList<Participante> participantes) {
 
         // divido el iterador por la cantidad de partidos por ronda(3)
-        int resto = i % 3;
-        System.out.println(resto);
+        int resto = i % rondas.get(0).getPartidosxronda();
         if (resto == 0) {
             rondas.get(rondas.size()-1).agregarPartido(nuevoPartido);
             System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
@@ -194,24 +174,15 @@ public class Main {
 
         }
         else {
-          /*  for (int j = 1; j < resultadoDatosFila.length; j++)
-            {
-                for (int k = 1; k < resultadoColumna_Fila.length; k++)
-                {*/
                     if (Integer.parseInt(resultadoColumna_Fila[1]) <= 3)
                     {
                         rondas.get(rondas.size() - 1).agregarPartido(nuevoPartido);
                         System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
                     }
-              //}
-            //}
-
 
             System.out.println("resultadoColumna_Fila[1]: " + (resultadoColumna_Fila[1]));
         }
-        for (int j = 0; j < rondas.size(); j++) {
-            System.out.println("algun texto a ver.." + rondas.get(j).partidos.size());
-        }
+
         System.out.println("EL RESULTADO FINAL ES: " + rondas.get(rondas.size()-1).getResultadoRondaFinal());
     }
 }
