@@ -12,17 +12,14 @@ public class Ronda {
     ArrayList<Partido> partidos = new ArrayList<>();
 
     private int numero;
-    private int resultadoRonda;
-
+    private int resultadoRondaParcial;
     private int resultadoRondaFinal;
+    private int partidosxronda = 3;
+
 
     public int getPartidosxronda() {
         return partidosxronda;
     }
-
-    private int partidosxronda = 3;
-
-
     public void siguienteRonda() {
         this.numero++;
     }
@@ -36,21 +33,22 @@ public class Ronda {
     {
         partidos.add(partido);
     }
-    public void setResultadoRonda(int resultadoRonda) {
-        this.resultadoRonda = resultadoRonda;
+    public void setResultadoRondaParcial(int resultadoRondaParcial) {
+        this.resultadoRondaParcial = resultadoRondaParcial;
     }
 
-    public int getResultadoRonda() {
-        return resultadoRonda;
+    public int getResultadoRondaParcial() {
+        return resultadoRondaParcial;
     }
 
     public int getResultadoRondaFinal() {
         return resultadoRondaFinal;
     }
 
-    public void setResultadoRondaFinal(int resultadoRondaFinal) {
-        this.resultadoRondaFinal = resultadoRondaFinal;
-    }
 
+    public void sumaResultadoRondaFinal()
+    {
+        resultadoRondaFinal += resultadoRondaParcial;
+    }
 
 }

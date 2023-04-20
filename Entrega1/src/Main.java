@@ -36,7 +36,7 @@ public class Main {
 
         // agrego id
         int id = 0;
-        int indicePartido = 0;
+        int indicePartido;
 
         // ronda predeterminada
         Ronda nuevaRonda = new Ronda();
@@ -161,29 +161,28 @@ public class Main {
         // divido el iterador por la cantidad de partidos por ronda(3)
         int resto = i % rondas.get(0).getPartidosxronda();
         if (resto == 0) {
+            //agrega el partido a la ronda
             rondas.get(rondas.size()-1).agregarPartido(nuevoPartido);
             System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
+
             //cada 3 partidos crea una nueva ronda y la añade a la arraylist rondas
             System.out.println("------ acá hay una nueva ronda --------");
             Ronda nuevaRonda = new Ronda();
             rondas.add(nuevaRonda);
-            nuevaRonda.setResultadoRonda(participantes.get(idParticipantes - 1).getPuntos());
-            System.out.println("EL RESULTADO DE ESTA RONDA ES: " + nuevaRonda.getResultadoRonda());
+            nuevaRonda.setResultadoRondaParcial(participantes.get(idParticipantes - 1).getPuntos());
+            System.out.println("EL RESULTADO DE ESTA RONDA ES: " + nuevaRonda.getResultadoRondaParcial());
+            participantes.get(idParticipantes - 1).sumaPuntosFinales();
             participantes.get(idParticipantes - 1).setPuntos(0);
-
 
         }
         else {
-                    if (Integer.parseInt(resultadoColumna_Fila[1]) <= 3)
+                    if (Integer.parseInt(resultadoColumna_Fila[1]) <= rondas.get(0).getPartidosxronda() )
                     {
                         rondas.get(rondas.size() - 1).agregarPartido(nuevoPartido);
                         System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
                     }
-
-            System.out.println("resultadoColumna_Fila[1]: " + (resultadoColumna_Fila[1]));
         }
-
-        System.out.println("EL RESULTADO FINAL ES: " + rondas.get(rondas.size()-1).getResultadoRondaFinal());
+        
     }
 }
 

@@ -8,8 +8,8 @@ public class Participante {
 
     private int id;
     private String nombre;
-
     private int puntos;
+    private int puntosFinales;
 
     public void sumarPunto () {
       puntos++;
@@ -25,6 +25,9 @@ public class Participante {
 
     public String getNombre() {
         return nombre;
+    }
+    public void sumaPuntosFinales() {
+       puntosFinales += puntos;
     }
 
 }
