@@ -46,9 +46,12 @@ public class Ronda {
     }
 
 
-    public void sumaResultadoRondaFinal()
+    public void sumaResultadoRondaFinalParticipante(ArrayList<Participante> participantes, int idParticipantes, int resultadoRondaFinal)
     {
-        resultadoRondaFinal += resultadoRondaParcial;
+        // resultadoRondaFinal += resultadoRondaParcial;
+        // participantes.get(idParticipantes-1).setPuntosFinalesRondas(resultadoRondaFinal);
+        resultadoRondaFinal = resultadoRondaFinal + resultadoRondaParcial;
+        System.out.println("EL RESULTADO FINAL ES: " + resultadoRondaFinal);
     }
 
 }
