@@ -26,11 +26,14 @@ public class Participante {
     public String getNombre() {
         return nombre;
     }
+
     public int getPuntosFinales() {
         return puntosFinales;
     }
+
     public void setPuntosFinales(int resultadoRondaFinal) {
-        this.puntosFinales = resultadoRondaFinal;
+        // this.puntosFinales = resultadoRondaFinal;
+        puntosFinales += resultadoRondaFinal;
     }
 
 }

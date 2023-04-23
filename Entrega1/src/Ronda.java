@@ -51,7 +51,10 @@ public class Ronda {
         // resultadoRondaFinal += resultadoRondaParcial;
         // participantes.get(idParticipantes-1).setPuntosFinalesRondas(resultadoRondaFinal);
         resultadoRondaFinal = resultadoRondaFinal + resultadoRondaParcial;
-        System.out.println("EL RESULTADO FINAL ES: " + resultadoRondaFinal);
+        //System.out.println("EL RESULTADO FINAL ES: " + resultadoRondaFinal);
+
+        participantes.get(idParticipantes - 1).setPuntosFinales(resultadoRondaFinal);
+
     }
 
 }

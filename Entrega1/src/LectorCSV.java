@@ -123,40 +123,41 @@ public class LectorCSV
     }
 
     public static void listaGanadores(ArrayList<Participante> participantes) {
+
         ArrayList<Participante> participantesAux = (ArrayList<Participante>) participantes.clone();
 
         System.out.println("\n-------------------------\n\t   ¡GANADORES!\n");
 
-        int max = participantesAux.get(0).getPuntos();
+        int max = participantesAux.get(0).getPuntosFinales();
+        int min = participantesAux.get(0).getPuntosFinales();
 
-        int min = participantesAux.get(0).getPuntos();
         int jmax = 0;
         int jmin = 0;
 
         System.out.println("⬇️⬇️⬇️⬇️⬇️ MAYOR PUNTAJE ⬇️⬇️⬇️⬇️⬇️");
         System.out.println("-------------------------");
-        for (int i = 0; i < participantesAux.size(); i++) {
 
+        for (int i = 0; i < participantesAux.size(); i++) {
 
             for (int j = 0; j < participantesAux.size(); j++) {
 
-                if (participantesAux.get(j).getPuntos() >= max) {
-                    max = participantesAux.get(j).getPuntos();
+                if (participantesAux.get(j).getPuntosFinales() >= max) {
+                    max = participantesAux.get(j).getPuntosFinales();
                     jmax = j;
 
                 } else {
-                    min = participantesAux.get(j).getPuntos();
+                    min = participantesAux.get(j).getPuntosFinales();
                     jmin = j;
                 }
             }
             System.out.println(participantesAux.get(jmax).getNombre() + "\t|\t" + max + "\tPUNTO/S" + "\n-------------------------");
             participantesAux.remove(jmax);
-            max = participantesAux.get(0).getPuntos();
-            min = participantesAux.get(0).getPuntos();
+            max = participantesAux.get(0).getPuntosFinales();
+            min = participantesAux.get(0).getPuntosFinales();
             i = 0;
         }
         System.out.println(participantesAux.get(0).getNombre() + "\t|\t" + min + "\tPUNTO/S\n-------------------------");
-        System.out.println("⬆️⬆️⬆️⬆️⬆️MENOR PUNTAJE ⬆️⬆️⬆️⬆️⬆️");
+        System.out.println("⬆⬆⬆⬆⬆ MENOR PUNTAJE ⬆️⬆️⬆️⬆️⬆️");
     }
 
     public static void ronda(int i,int idParticipantes, int resultadoRondaFinal, Partido nuevoPartido,ArrayList<Ronda> rondas, String[] resultadoColumna_Fila, ArrayList<Participante> participantes) {
@@ -174,9 +175,17 @@ public class LectorCSV
             rondas.add(nuevaRonda);
             nuevaRonda.setResultadoRondaParcial(participantes.get(idParticipantes - 1).getPuntos());
             System.out.println("EL RESULTADO DE ESTA RONDA ES: " + nuevaRonda.getResultadoRondaParcial());
+
+
             nuevaRonda.sumaResultadoRondaFinalParticipante(participantes, idParticipantes,resultadoRondaFinal);
-            participantes.get(idParticipantes - 1).setPuntosFinales(participantes.get(idParticipantes - 1).getPuntos());
+
+
+            //participantes.get(idParticipantes - 1).setPuntosFinales(participantes.get(idParticipantes - 1).getPuntos());
+
+
             participantes.get(idParticipantes - 1).setPuntos(0);
+
+            System.out.println("ronda final participante -> "+participantes.get(idParticipantes - 1).getPuntosFinales());
 
         }
         else {
