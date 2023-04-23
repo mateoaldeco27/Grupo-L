@@ -2,12 +2,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class LectorCSV
 {
     LectorCSV()
     {
+
         // Path resultado = Paths.get("./resultados.csv");
         Path resultado = Paths.get("Entrega1/src/resultados.csv");
         // Path pronostico = Paths.get("./pronostico.csv");
