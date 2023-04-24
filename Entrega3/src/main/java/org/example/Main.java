@@ -1,24 +1,30 @@
 package org.example;
 
 import java.sql.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        AgregameEstoaLaDB();
+        
+        CSVoDB("db");
 
 
     }
-
-    public static void AgregameEstoaLaDB() throws SQLException
+    public static void CSVoDB(String eleccion)
     {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10614022", "sql10614022", "W3YI6xDvYY");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Pronostico");
-            while (rs.next()) System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(6)+" "+rs.getString(7));
-
-            stmt.close();}
-        catch (SQLException e) {System.out.println(e);}
+        eleccion = eleccion.toUpperCase();
+        if (eleccion.equals("CSV") )
+        {
+            LectorCSV lectorcsv = new LectorCSV();
+        }
+        else if(eleccion.equals("DB"))
+        {
+            LectorDB lectorDB = new LectorDB();
+        }
+        else{
+            System.out.println("La entrada es incorrecta. Por favor, escriba CSV o DB");
+        }
 
     }
+
 }

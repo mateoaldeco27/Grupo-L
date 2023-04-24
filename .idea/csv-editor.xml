@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Entrega3\src\main\java\org\example\resultados.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Test\src\main\java\org\example\pronostico.csv">
           <value>
             <Attribute>
