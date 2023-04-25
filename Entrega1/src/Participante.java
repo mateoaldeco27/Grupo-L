@@ -26,8 +26,14 @@ public class Participante {
     public String getNombre() {
         return nombre;
     }
-    public void sumaPuntosFinales() {
-       puntosFinales += puntos;
+
+    public int getPuntosFinales() {
+        return puntosFinales;
+    }
+
+    public void setPuntosFinales(int resultadoRondaFinal) {
+        // this.puntosFinales = resultadoRondaFinal;
+        puntosFinales += resultadoRondaFinal;
     }
 
 }
