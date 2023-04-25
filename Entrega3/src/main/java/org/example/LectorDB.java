@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 
-
 public class LectorDB
 {
     LectorDB()
