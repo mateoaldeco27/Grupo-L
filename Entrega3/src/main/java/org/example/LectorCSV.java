@@ -14,9 +14,9 @@ public class LectorCSV
 
         System.out.println("ESTAMOS LEYENDO DE LOS ARCHIVOS .CSV");
         // Path resultado = Paths.get("./resultados.csv");
-        Path resultado = Paths.get("Entrega1/src/resultados.csv");
+        Path resultado = Paths.get("Entrega3/src/main/java/org/example/resultados.csv");
         // Path pronostico = Paths.get("./pronostico.csv");
-        Path pronostico = Paths.get("Entrega1/src/pronostico.csv");
+        Path pronostico = Paths.get("Entrega3/src/main/java/org/example/pronostico.csv");
 
         String resultadoString;
         String pronosticoString;
