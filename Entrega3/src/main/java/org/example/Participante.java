@@ -1,3 +1,7 @@
+package org.example;
+
+import java.util.ArrayList;
+
 public class Participante {
 
     public Participante (int identification, String name)
@@ -31,9 +35,13 @@ public class Participante {
         return puntosFinales;
     }
 
-    public void setPuntosFinales(int resultadoRondaFinal) {
-        // this.puntosFinales = resultadoRondaFinal;
-        puntosFinales += resultadoRondaFinal;
+    public void setPuntosFinales(int resultadoRondaFinal, int partidosxRonda) {
+        if (partidosxRonda * 1 == resultadoRondaFinal) {
+            puntosFinales += resultadoRondaFinal + 1;
+        }
+        else {
+            puntosFinales += resultadoRondaFinal;
+        }
     }
 
 }
