@@ -1,13 +1,9 @@
-package org.example;
+//package org.example;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class LectorDB
+/*public class LectorDB
 {
     LectorDB()
     {
@@ -65,15 +61,20 @@ public class LectorDB
             ArrayList<Participante> participantes = new ArrayList<>();
 
             ArrayList<Ronda> rondas = new ArrayList<>();
+            ArrayList<Fase> fases = new ArrayList<>();
 
             // agrego id
             int id = 0;
             int indicePartido;
             int resultadoRondaFinal = 0;
+            int resultadoFaseFinal = 0;
 
             // ronda predeterminada
             Ronda nuevaRonda = new Ronda();
             rondas.add(nuevaRonda);
+            // fase predetermindada
+            Fase nuevaFase = new Fase();
+            fases.add(nuevaFase);
 
             // Extracción de datos del .csv y armado de objetos Equipo y Partido
             for (int i = 1; i < pronosticoDatosFila.length; i++) {
@@ -117,6 +118,7 @@ public class LectorDB
 
                 mostramePorConsola(nuevoPartido, indicePartido, participantes, id, nuevoPronostico, pronosticoColumna_Fila);
                 ronda(indicePartido, id, resultadoRondaFinal, nuevoPartido, rondas, resultadoColumna_Fila, participantes);
+                fase(indicePartido, id, resultadoFaseFinal, nuevaRonda, fases, resultadoColumna_Fila, participantes);
             }
 
             listaGanadores(participantes);
@@ -159,36 +161,36 @@ public class LectorDB
 
         System.out.println("\n-------------------------\n\t   ¡GANADORES!\n");
 
-        int max = participantesAux.get(0).getPuntosFinales();
-        int min = participantesAux.get(0).getPuntosFinales();
+        int max = participantesAux.get(0).getPuntosFinalesFase();
+        int min = participantesAux.get(0).getPuntosFinalesFase();
 
         int jmax = 0;
         int jmin = 0;
 
-        System.out.println("⬇️⬇️⬇️⬇️⬇️ MAYOR PUNTAJE ⬇️⬇️⬇️⬇️⬇️");
+        System.out.println("↓↓↓↓↓ MAYOR PUNTAJE ↓↓↓↓↓");
         System.out.println("-------------------------");
 
         for (int i = 0; i < participantesAux.size(); i++) {
 
             for (int j = 0; j < participantesAux.size(); j++) {
 
-                if (participantesAux.get(j).getPuntosFinales() >= max) {
-                    max = participantesAux.get(j).getPuntosFinales();
+                if (participantesAux.get(j).getPuntosFinalesFase() >= max) {
+                    max = participantesAux.get(j).getPuntosFinalesFase();
                     jmax = j;
 
                 } else {
-                    min = participantesAux.get(j).getPuntosFinales();
+                    min = participantesAux.get(j).getPuntosFinalesFase();
                     jmin = j;
                 }
             }
             System.out.println(participantesAux.get(jmax).getNombre() + "\t|\t" + max + "\tPUNTO/S" + "\n-------------------------");
             participantesAux.remove(jmax);
-            max = participantesAux.get(0).getPuntosFinales();
-            min = participantesAux.get(0).getPuntosFinales();
+            max = participantesAux.get(0).getPuntosFinalesFase();
+            min = participantesAux.get(0).getPuntosFinalesFase();
             i = 0;
         }
         System.out.println(participantesAux.get(0).getNombre() + "\t|\t" + min + "\tPUNTO/S\n-------------------------");
-        System.out.println("⬆⬆⬆⬆⬆ MENOR PUNTAJE ⬆️⬆️⬆️⬆️⬆️");
+        System.out.println("↑↑↑↑↑ MENOR PUNTAJE ↑↑↑↑↑");
     }
 
         public static void ronda(int i,int idParticipantes, int resultadoRondaFinal, Partido nuevoPartido,ArrayList<Ronda> rondas, String[] resultadoColumna_Fila, ArrayList<Participante> participantes) {
@@ -199,28 +201,23 @@ public class LectorDB
             //agrega el partido a la ronda
             rondas.get(rondas.size()-1).agregarPartido(nuevoPartido);
             System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
-
             //cada 3 partidos crea una nueva ronda y la añade a la arraylist rondas
             System.out.println("------ acá hay una nueva ronda --------");
             Ronda nuevaRonda = new Ronda();
             rondas.add(nuevaRonda);
             nuevaRonda.setResultadoRondaParcial(participantes.get(idParticipantes -1).getPuntos());
-            System.out.println("EL RESULTADO DE ESTA RONDA ES: " + nuevaRonda.getResultadoRondaParcial());
+            System.out.println("EL RESULTADO DE ESTA RONDA ES: "+ nuevaRonda.getResultadoRondaParcial());
 
 
             nuevaRonda.sumaResultadoRondaFinalParticipante(participantes, idParticipantes,resultadoRondaFinal);
 
-
-            //participantes.get(idParticipantes - 1).setPuntosFinales(participantes.get(idParticipantes - 1).getPuntos());
-
-
             participantes.get(idParticipantes-1 ).setPuntos(0);
 
-            System.out.println("ronda final participante -> "+participantes.get(idParticipantes -1).getPuntosFinales());
+            System.out.println("EL RESULTADO FINAL DE LAS RONDAS ES: "+participantes.get(idParticipantes -1).getPuntosFinalesFase());
 
         }
         else {
-            if (Integer.parseInt(resultadoColumna_Fila[1]) <= rondas.get(0).getPartidosxronda() -1)
+            if (Integer.parseInt(resultadoColumna_Fila[2]) <= rondas.get(0).getPartidosxronda())
             {
                 rondas.get(rondas.size()-1).agregarPartido(nuevoPartido);
                 System.out.println("agregamos otro partido: " + nuevoPartido.mostrameDatosPartido(i));
@@ -229,5 +226,36 @@ public class LectorDB
 
     }
 
+    public static void fase(int i, int idParticipantes, int resultadoFaseFinal, Ronda nuevaRonda, ArrayList<Fase> fases, String[] resultadoColumna_Fila, ArrayList<Participante> participantes) {
 
-}
+        // divido el iterador por la cantidad de rondas por fase(2)
+        int resto = i % fases.get(0).getRondasxfase();
+        if (resto == 0) {
+            //agrega la ronda a la fase
+            fases.get(fases.size()-1).agregarRonda(nuevaRonda);
+            //cada 2 rondas crea una nueva fase y la añade a la arraylist fases
+            System.out.println("------ acá hay una nueva fase --------");
+            Fase nuevaFase = new Fase();
+            fases.add(nuevaFase);
+            nuevaFase.setResultadoFaseParcial(participantes.get(idParticipantes -1).getPuntos());
+            System.out.println("EL RESULTADO DE ESTA FASE ES: " + nuevaFase.getResultadoFaseParcial());
+
+
+            nuevaFase.sumaResultadoFaseFinalParticipante(participantes, idParticipantes, resultadoFaseFinal);
+
+            participantes.get(idParticipantes-1 ).setPuntos(0);
+
+            System.out.println("EL RESULTADO FINAL DE LAS FASES ES: "+participantes.get(idParticipantes -1).getPuntosFinales());
+
+        }
+        else {
+            if (Integer.parseInt(resultadoColumna_Fila[1]) <= fases.get(0).getRondasxfase())
+            {
+                fases.get(fases.size()-1).agregarRonda(nuevaRonda);
+            }
+        }
+
+    }
+
+
+}*/

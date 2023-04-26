@@ -3,11 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Ronda {
-
-    public Ronda()
-    {
-
-    }
+    public Ronda() {}
 
     ArrayList<Partido> partidos = new ArrayList<>();
 
@@ -25,9 +21,7 @@ public class Ronda {
         partidos.add(partido);
     }
 
-    public void setResultadoRondaParcial(int resultadoRondaParcial) {
-        this.resultadoRondaParcial = resultadoRondaParcial;
-    }
+    public void setResultadoRondaParcial(int resultadoRondaParcial) {this.resultadoRondaParcial = resultadoRondaParcial;}
     public int getResultadoRondaParcial() {
         return resultadoRondaParcial;
     }
@@ -36,7 +30,7 @@ public class Ronda {
     {
         resultadoRondaFinal = resultadoRondaFinal + resultadoRondaParcial;
 
-        participantes.get(idParticipantes - 1).setPuntosFinales(resultadoRondaFinal,partidosxronda);
+        participantes.get(idParticipantes - 1).setPuntosFinalesRonda(resultadoRondaFinal,partidosxronda);
 
     }
 

@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
 
 public class Participante {
 
@@ -13,7 +12,9 @@ public class Participante {
     private int id;
     private String nombre;
     private int puntos;
-    private int puntosFinales;
+    private int puntosFinalesRonda;
+
+    private int puntosFinalesFase;
 
     public void sumarPunto () {
       puntos++;
@@ -31,16 +32,35 @@ public class Participante {
         return nombre;
     }
 
-    public int getPuntosFinales() {
-        return puntosFinales;
+    public int getPuntosFinalesRonda() {
+        return puntosFinalesRonda;
     }
 
-    public void setPuntosFinales(int resultadoRondaFinal, int partidosxRonda) {
+    public int getPuntosFinalesFase() {
+        return puntosFinalesFase;
+    }
+
+
+    public void resetPuntosFinalesRonda() {
+        puntosFinalesRonda = 0;
+    }
+
+
+    public void setPuntosFinalesRonda(int resultadoRondaFinal, int partidosxRonda) {
         if (partidosxRonda * 1 == resultadoRondaFinal) {
-            puntosFinales += resultadoRondaFinal + 1;
+            puntosFinalesRonda += resultadoRondaFinal + 1;
         }
         else {
-            puntosFinales += resultadoRondaFinal;
+            puntosFinalesRonda += resultadoRondaFinal;
+        }
+    }
+
+    public void setPuntosFinalesFase(int resultadoFaseFinal, int partidoxfase, int cantRondasFase, int resultadoFaseParcial) {
+        if (/*partidoxfase * 2*/ (cantRondasFase*4) == resultadoFaseParcial) {
+            puntosFinalesFase =++ resultadoFaseFinal ;
+        }
+        else {
+            puntosFinalesFase = resultadoFaseFinal;
         }
     }
 

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws SQLException {
         
-        CSVoDB("CSV");
+        CSVoDB("csv");
 
 
     }
@@ -19,7 +19,7 @@ public class Main {
         }
         else if(eleccion.equals("DB"))
         {
-            LectorDB lectorDB = new LectorDB();
+            //LectorDB lectorDB = new LectorDB();
         }
         else{
             System.out.println("La entrada es incorrecta. Por favor, escriba CSV o DB");
