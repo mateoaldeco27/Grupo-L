@@ -48,7 +48,6 @@ public class Partido
         }
     }
 
-    //new modified
     public String mostrameDatosPartido(int indice)
     {
         return("En el partido " + indice + " jugaron:\n" +
