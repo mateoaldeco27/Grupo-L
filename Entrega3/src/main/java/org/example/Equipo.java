@@ -15,12 +15,12 @@ public class Equipo {
     private RESULTADO resultado;
     private RESULTADO expectativa;
 
-    public String GetNombre()
+    public String getNombre()
     {
         return nombre;
     }
 
-    public void SetResultado(RESULTADO resultado)
+    public void setResultado(RESULTADO resultado)
     {
         this.resultado = resultado;
     }

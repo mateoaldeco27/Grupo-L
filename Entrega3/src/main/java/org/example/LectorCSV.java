@@ -38,6 +38,7 @@ public class LectorCSV
         ArrayList<Participante> participantes = new ArrayList<>();
 
         ArrayList<Ronda> rondas = new ArrayList<>();
+
         ArrayList<Fase> fases = new ArrayList<>();
 
         // agrego id
@@ -100,7 +101,7 @@ public class LectorCSV
 
         listaGanadores(participantes);
 
-        System.out.println("rondas.size = " + (rondas.size()-1)); // -1 por la ronda 0 creada
+        System.out.println("rondas.size = " + (rondas.size()-1)); // -1 por la ronda 0 creada ELIMINAR
     }
 
     public static void mostramePorConsola(Partido nuevoPartido, int indicePartido, ArrayList<Participante> participantes,
