@@ -56,7 +56,7 @@ public class Participante {
     }
 
     public void setPuntosFinalesFase(int resultadoFaseFinal, int partidoxfase, int cantRondasFase, int resultadoFaseParcial) {
-        if (/*partidoxfase * 2*/ (cantRondasFase*4) == resultadoFaseParcial) {
+        if ((cantRondasFase*4) == resultadoFaseParcial) {
             puntosFinalesFase =++ resultadoFaseFinal ;
         }
         else {

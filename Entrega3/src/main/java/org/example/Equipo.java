@@ -36,14 +36,4 @@ public class Equipo {
     public RESULTADO getResultado() {
         return resultado;
     }
-
-    public String mostrameDatosEquipo() {
-        return "Equipo{" +
-                "descripcion='" + descripcion + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", id=" + id +
-                ", resultado=" + resultado +
-                ", expectativa=" + expectativa +
-                '}';
-    }
 }
