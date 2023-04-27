@@ -1,4 +1,4 @@
-# Grupo-L-D-B
+# Grupo-L-D
 
  En este trabajo se fusionaron varios grupos debido a la deserción de algunos alumnos.
  Integrantes:
