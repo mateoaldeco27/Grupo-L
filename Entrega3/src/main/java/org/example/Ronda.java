@@ -11,6 +11,8 @@ public class Ronda {
     private int resultadoRondaFinal;
     private int partidosxronda = 3;
     private int puntoExtraXronda = 1;
+
+    //instanciamos un objeto pronostico para poder acceder a sus atributos
     Pronostico pronostico = new Pronostico();
 
 

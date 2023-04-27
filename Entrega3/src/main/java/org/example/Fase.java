@@ -6,21 +6,21 @@ public class Fase {
     Fase() {}
 
     ArrayList<Ronda> rondas = new ArrayList<>();
-    Pronostico pronostico = new Pronostico();
     private int resultadoFaseParcial;
     private int resultadoFaseFinal;
     private int puntoExtraFaseAcertada = 1;
+    private int cantRondasFase = 2;
+
+    //instanciamos un objeto pronostico y un objeto fase para poder acceder a sus atributos
+    Pronostico pronostico = new Pronostico();
+    Ronda ronda = new Ronda();
+
+    private int partidoxfase = (cantRondasFase * ronda.getPartidosxronda());
+
 
     public int getPuntoExtraFaseAcertada() {
         return puntoExtraFaseAcertada;
     }
-
-    private Ronda ronda = new Ronda();
-
-    private int cantRondasFase = 2;
-
-    private int partidoxfase = (cantRondasFase * ronda.getPartidosxronda());
-
     public int getPartidoxfase() {return partidoxfase;}
 
     public void agregarRonda(Ronda ronda) {

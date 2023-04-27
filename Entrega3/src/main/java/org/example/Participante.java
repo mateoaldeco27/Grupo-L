@@ -8,19 +8,19 @@ public class Participante {
         id = identification;
         nombre = name;
     }
-
-    Pronostico pronostico = new Pronostico();
-    Fase fase = new Fase();
     private int id;
     private String nombre;
     private int puntos;
     private int puntosFinalesRonda;
     private int puntosFinalesFase;
 
+    //instanciamos un objeto pronostico y un objeto fase para poder acceder a sus atributos
+    Pronostico pronostico = new Pronostico();
+    Fase fase = new Fase();
+
     public void sumarPunto () {
       puntos += pronostico.puntoPronosticoAcertado ;
     }
-
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
