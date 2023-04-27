@@ -6,9 +6,14 @@ public class Fase {
     Fase() {}
 
     ArrayList<Ronda> rondas = new ArrayList<>();
-
+    Pronostico pronostico = new Pronostico();
     private int resultadoFaseParcial;
     private int resultadoFaseFinal;
+    private int puntoExtraFaseAcertada = 1;
+
+    public int getPuntoExtraFaseAcertada() {
+        return puntoExtraFaseAcertada;
+    }
 
     private Ronda ronda = new Ronda();
 
@@ -32,6 +37,6 @@ public class Fase {
 
         resultadoFaseFinal = resultadoFaseFinal + resultadoFaseParcial;
 
-        participantes.get(idParticipantes - 1).setPuntosFinalesFase(resultadoFaseFinal, partidoxfase, cantRondasFase, resultadoFaseParcial);
+        participantes.get(idParticipantes - 1).setPuntosFinalesFase(resultadoFaseFinal, partidoxfase, cantRondasFase, resultadoFaseParcial, ronda.getPartidosxronda(),ronda.getPuntoExtraXronda(), pronostico.puntoPronosticoAcertado);
     }
 }
