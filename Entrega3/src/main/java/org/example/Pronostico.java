@@ -3,6 +3,8 @@ package org.example;
 import java.util.ArrayList;
 
 public class Pronostico {
+    //este constrtucto vacio es para tener acceso a puntoPronosticoAcertado en la clase Ronda
+    public Pronostico(){}
     public Pronostico(Partido partido, Equipo equipo1, Equipo equipo2)
     {
         this.partido = partido;
@@ -14,6 +16,7 @@ public class Pronostico {
     private Partido partido;
     private Equipo equipo1;
     private Equipo equipo2;
+    public int puntoPronosticoAcertado = 1;
 
 
      private Participante participante;
@@ -28,7 +31,7 @@ public class Pronostico {
         {
             System.out.println(participantes.get(id-1).getNombre() + " acertó el pronóstico");
           System.out.println("-------------\nEn este Partido " + participantes.get(id - 1).getNombre()
-        + " obtuvo: 1 punto.");
+        + " obtuvo:" + puntoPronosticoAcertado + " punto/s.");
           participante.sumarPunto();
         }
         else

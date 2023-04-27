@@ -10,7 +10,12 @@ public class Ronda {
     private int resultadoRondaParcial;
     private int resultadoRondaFinal;
     private int partidosxronda = 3;
+    private int puntoExtraXronda = 1;
+    Pronostico pronostico = new Pronostico();
 
+
+
+    public int getPuntoExtraXronda() {return puntoExtraXronda;}
 
     public int getPartidosxronda() {
         return partidosxronda;
@@ -30,7 +35,7 @@ public class Ronda {
     {
         resultadoRondaFinal = resultadoRondaFinal + resultadoRondaParcial;
 
-        participantes.get(idParticipantes - 1).setPuntosFinalesRonda(resultadoRondaFinal,partidosxronda);
+        participantes.get(idParticipantes - 1).setPuntosFinalesRonda(resultadoRondaFinal,partidosxronda,puntoExtraXronda,pronostico.puntoPronosticoAcertado);
 
     }
 

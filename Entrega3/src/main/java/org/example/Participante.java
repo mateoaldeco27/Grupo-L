@@ -9,15 +9,16 @@ public class Participante {
         nombre = name;
     }
 
+    Pronostico pronostico = new Pronostico();
+    Fase fase = new Fase();
     private int id;
     private String nombre;
     private int puntos;
     private int puntosFinalesRonda;
-
     private int puntosFinalesFase;
 
     public void sumarPunto () {
-      puntos++;
+      puntos += pronostico.puntoPronosticoAcertado ;
     }
 
     public void setPuntos(int puntos) {
@@ -46,18 +47,18 @@ public class Participante {
     }
 
 
-    public void setPuntosFinalesRonda(int resultadoRondaFinal, int partidosxRonda) {
-        if (partidosxRonda * 1 == resultadoRondaFinal) {
-            puntosFinalesRonda += resultadoRondaFinal + 1;
+    public void setPuntosFinalesRonda(int resultadoRondaFinal, int partidosxRonda, int puntoExtraXronda, int puntoPronosticoAcertado) {
+        if (partidosxRonda * puntoPronosticoAcertado == resultadoRondaFinal) {
+            puntosFinalesRonda += resultadoRondaFinal + puntoExtraXronda;
         }
         else {
             puntosFinalesRonda += resultadoRondaFinal;
         }
     }
 
-    public void setPuntosFinalesFase(int resultadoFaseFinal, int partidoxfase, int cantRondasFase, int resultadoFaseParcial) {
-        if ((cantRondasFase*4) == resultadoFaseParcial) {
-            puntosFinalesFase =++ resultadoFaseFinal ;
+    public void setPuntosFinalesFase(int resultadoFaseFinal, int partidoxfase, int cantRondasFase, int resultadoFaseParcial, int partidosxRonda, int puntoExtraXronda, int puntoPronosticoAcertado) {
+        if ((cantRondasFase*((partidosxRonda*puntoPronosticoAcertado)+puntoExtraXronda) == resultadoFaseParcial) ){
+            puntosFinalesFase = resultadoFaseFinal + fase.getPuntoExtraFaseAcertada()  ;
         }
         else {
             puntosFinalesFase = resultadoFaseFinal;
