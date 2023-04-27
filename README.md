@@ -9,4 +9,4 @@
  - *Mateo Aldeco(grupo L) -> [@mateoaldeco27](https://github.com/mateoaldeco27),*
  - *Raul Arriestra(grupo L) -> [@ulrra2023](https://github.com/ulrra2023),*
  - *Franco Lencina(gurpo D) -> [@FranLencina](https://github.com/FranLencina),*
- - *Facundo Arrativel(grupo D) [@Shiryu180](https://github.com/Shiryu180).*
+ - *Facundo Arrativel(grupo D) -> [@Shiryu180](https://github.com/Shiryu180).*
