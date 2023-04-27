@@ -110,39 +110,47 @@ public class LectorManager {
 
     public static void listaGanadores(ArrayList<Participante> participantes) {
 
+        // Se crea un clon de la colección de Participantes para no perderlos cuando se eliminen.
         ArrayList<Participante> participantesAux = (ArrayList<Participante>) participantes.clone();
 
         System.out.println("\n-------------------------\n\t   ¡GANADORES!\n");
 
-        int max = participantesAux.get(0).getPuntosFinalesFase();
-        int min = participantesAux.get(0).getPuntosFinalesFase();
+        int maxPuntaje = participantesAux.get(0).getPuntosFinalesFase();
+        int minPuntaje = participantesAux.get(0).getPuntosFinalesFase();
 
-        int jmax = 0;
-        int jmin = 0;
+        int indexMaxPuntaje = 0;
+        int indexMinPuntaje = 0;
 
         System.out.println("↓↓↓↓↓ MAYOR PUNTAJE ↓↓↓↓↓");
         System.out.println("-------------------------");
 
+        // El primer ciclo recorre a todos los participantes.
         for (int i = 0; i < participantesAux.size(); i++) {
-
+            // El segundo ciclo recorre a los participantes que quedan en la colección, ya que una vez se busca el mayor puntaje se elimina al particiopante.
             for (int j = 0; j < participantesAux.size(); j++) {
 
-                if (participantesAux.get(j).getPuntosFinalesFase() >= max) {
-                    max = participantesAux.get(j).getPuntosFinalesFase();
-                    jmax = j;
+                if (participantesAux.get(j).getPuntosFinalesFase() >= maxPuntaje) {
+                    maxPuntaje = participantesAux.get(j).getPuntosFinalesFase();
+                    indexMaxPuntaje = j;
 
                 } else {
-                    min = participantesAux.get(j).getPuntosFinalesFase();
-                    jmin = j;
+                    minPuntaje = participantesAux.get(j).getPuntosFinalesFase();
+                    indexMinPuntaje = j;
                 }
             }
-            System.out.println(participantesAux.get(jmax).getNombre() + "\t|\t" + max + "\tPUNTO/S" + "\n-------------------------");
-            participantesAux.remove(jmax);
-            max = participantesAux.get(0).getPuntosFinalesFase();
-            min = participantesAux.get(0).getPuntosFinalesFase();
+            System.out.println(participantesAux.get(indexMaxPuntaje).getNombre() + "\t|\t" + maxPuntaje + "\tPUNTO/S" + "\n-------------------------");
+
+            // Se elimina al participante con mayor puntaje.
+            participantesAux.remove(indexMaxPuntaje);
+
+            // Se setea el valor del puntaje máximo/mínimo a la primer persona que aparece en la lista modificada.
+            maxPuntaje = participantesAux.get(0).getPuntosFinalesFase();
+            minPuntaje = participantesAux.get(0).getPuntosFinalesFase();
+
+            // El iterador del primer ciclo vuelve a cero para que no se salte a la primera persona que queda en la colección luego de la eliminación
             i = 0;
         }
-        System.out.println(participantesAux.get(0).getNombre() + "\t|\t" + min + "\tPUNTO/S\n-------------------------");
+        System.out.println(participantesAux.get(0).getNombre() + "\t|\t" + minPuntaje + "\tPUNTO/S\n-------------------------");
         System.out.println("↑↑↑↑↑ MENOR PUNTAJE ↑↑↑↑↑");
     }
 
